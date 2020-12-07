@@ -24,7 +24,7 @@ public class CoinController : MonoBehaviour
         if(PU1 == 1)
         {
         */
-            if (collision.gameObject.tag != "enemy" && collision.gameObject.tag != "bullet")
+            if (collision.gameObject.tag != "enemy" && collision.gameObject.tag != "bullet" && collision.gameObject.tag != "fountain")
             {
                 Destroy(gameObject);
             }
