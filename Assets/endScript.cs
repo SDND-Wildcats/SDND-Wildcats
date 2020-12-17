@@ -14,7 +14,7 @@ public class endScript : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    //Displays whether you won or not when the game is over
     void Update()
     {
         int holynum = PlayerPrefs.GetInt("P4W");

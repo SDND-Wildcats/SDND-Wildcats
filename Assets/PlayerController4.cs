@@ -10,6 +10,7 @@ public class PlayerController4 : MonoBehaviour
 
     void Start()
     {
+        //Sets powerups to inactive on start
         PlayerPrefs.SetInt("megaJump", 0);
         PlayerPrefs.SetInt("keyNum", 0);
         PlayerPrefs.SetInt("P4W", 0);
@@ -23,15 +24,21 @@ public class PlayerController4 : MonoBehaviour
     void Update()
     {
 
+        if (transform.position.y < -45)
+        {
+            SceneManager.LoadScene("ProjEnd");
+        }
+
         position = transform.position;
 
+        //Detects if powerup is activated
         if (PlayerPrefs.GetInt("megaJump") == 1)
         {
             GetComponent<Animator>().SetBool("Grounded", true);
         }
 
+        //Handles movement of main character
         Vector2 heroMovement;
-
         heroMovement = new Vector2(
             Input.GetAxisRaw("Horizontal") * 6f,
             GetComponent<Rigidbody2D>().velocity.y
@@ -41,6 +48,7 @@ public class PlayerController4 : MonoBehaviour
 
         GetComponent<Animator>().SetFloat("xVel", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
 
+        //Rotates game sprite appropriately
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
@@ -51,6 +59,7 @@ public class PlayerController4 : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
+        //Handles jump inputs
         if (Input.GetButtonDown("Jump"))
            if (GetComponent<Animator>().GetBool("Grounded") == true)
            {
@@ -62,13 +71,17 @@ public class PlayerController4 : MonoBehaviour
             }
     }
 
+    //Handles collision with enemies causing death
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GetComponent<Animator>().SetBool("Grounded", true);
 
         if (collision.gameObject.tag == "enemy" || collision.gameObject.tag == "bullet")
         {
-            SceneManager.LoadScene("Proj4End");
+            if (PlayerPrefs.GetInt("megaJump") == 0)
+            {
+                SceneManager.LoadScene("ProjEnd");
+            }
         }
 
     }

@@ -11,12 +11,7 @@ public class keyScript : MonoBehaviour
         audioData = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Allows for key collection and counting
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")

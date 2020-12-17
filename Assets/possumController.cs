@@ -5,13 +5,12 @@ using UnityEngine;
 public class possumController : MonoBehaviour
 {
     public float treeSpeed = 2.0f;
-    // Start is called before the first frame update
     void Start()
     {
         Invoke("Direction", 1.5f);
     }
 
-    // Update is called once per frame
+    //Makes the possums face the correct direction
     void Update()
     {
         transform.Translate(treeSpeed * Time.deltaTime, 0, 0);
@@ -27,6 +26,7 @@ public class possumController : MonoBehaviour
         }
     }
 
+    //Handles direction changes
     void Direction()
     {
         float val = Random.value;
@@ -38,6 +38,7 @@ public class possumController : MonoBehaviour
         Invoke("Direction", 0.3f);
     }
 
+    //Handles direction changes
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "enemy")

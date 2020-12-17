@@ -13,11 +13,11 @@ public class textscript : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Displays how many keys are left to find
         int holynum = PlayerPrefs.GetInt("keyNum");
-        int holiernum = 5 - holynum;
+        int holiernum = 10 - holynum;
         directText = textOutput.GetComponent<Text>();
         directText.text = ("Keys Remaining: " + holiernum);
     }

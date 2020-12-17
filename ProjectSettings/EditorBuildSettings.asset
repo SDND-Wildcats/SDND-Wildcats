@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/ProjectHomePage.unity
     guid: d53852d132a22d245b4d53a7ec0d77fd
   - enabled: 1
-    path: Assets/Scenes/Proj4End.unity
+    path: Assets/Scenes/ProjEnd.unity
     guid: f535b47eca6460941b3591dadf43ce32
   m_configObjects: {}

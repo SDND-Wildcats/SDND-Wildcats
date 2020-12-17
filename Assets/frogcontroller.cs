@@ -13,14 +13,13 @@ public class frogcontroller : MonoBehaviour
     public GameObject coinPrefab;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         lastTime = Time.time;
         layerMask = 0xffff ^ (1 << LayerMask.NameToLayer("npcLayer"));
     }
 
-    // Update is called once per frame
+    //Uses rays and lines to determine player position and shoot homing bullets
     void Update()
     {
         hVector = PlayerController4.position - (Vector2)transform.position;
